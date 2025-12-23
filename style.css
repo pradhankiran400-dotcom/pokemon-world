@@ -1,69 +1,37 @@
 @import "tailwindcss";
-#blur{
-    background-image: url('Gemini_Generated_Image_19ckkh19ckkh19ck.png');
 
-}
-#img:hover{
-    height: 358px;
-    width: 404px;
-}
-#container{
-  display: flex;
-  height: 200px;
-  width: 500px;
-  border:2px solid white;
-  justify-content: centre;
-}
-p{
-  color: white;
-}
-.horizontal-box {
-  width: 1000px;
-  height: 200px;
-  overflow-x: auto;     /* horizontal scroll */
-  overflow-y: hidden;
-  display: flex;
-  gap: 10px;
-  /* padding-left: 10px; */
-  margin-left: 250px;
-  border: 1px solid #ccc;
-}
+/* ----- Custom Scrollbar Styling ----- */
 
-/* Items ko side by side rakhne ke liye */
-.item {
-  min-width: 120px;
-  height: 200px;
-  /* background: #e5e7eb;
-  display: flex;
-  align-items: center; */
-  justify-content: center;
-  font-weight: bold;
-  border-radius: 6px;
-  background-color: black;
-  border: 2px solid yellow;
-}
-
-/* Chrome, Edge, Safari */
+/* Width and Height of scrollbar */
 .horizontal-box::-webkit-scrollbar {
-  height: 8px;   /* ⚠️ horizontal ke liye height */
+  height: 8px; /* Horizontal height */
 }
 
+/* The Track (Background) */
 .horizontal-box::-webkit-scrollbar-track {
-  background: #f3f4f6;
-}
-
-.horizontal-box::-webkit-scrollbar-thumb {
-  background: #6b7280;
+  background: #1f2937; /* Dark Gray background to match theme */
   border-radius: 10px;
 }
 
-/* Firefox */
-.horizontal-box {
-  scrollbar-width: thin;
-  scrollbar-color: #6b7280 #f3f4f6;
+/* The Thumb (Moving part) - Yellow color restored */
+.horizontal-box::-webkit-scrollbar-thumb {
+  background: #facc15; /* Your Yellow Color */
+  border-radius: 10px;
+  border: 1px solid #000; /* Thoda definition ke liye border */
 }
 
-#pikachu:hover{
-  background-image: url('pikachu-card.png');
-  background-size: cover;
+/* Hover effect on thumb */
+.horizontal-box::-webkit-scrollbar-thumb:hover {
+  background: #eab308; /* Thoda dark yellow hover pe */
+}
+
+/* Firefox compatibility */
+.horizontal-box {
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 #1f2937;
+}
+
+/* Optional: Text shadow helper */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }

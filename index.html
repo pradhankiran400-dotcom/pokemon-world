@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -183,4 +183,131 @@
     </div>
 </footer>
 </body>
-</html>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" class="dark"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+          theme: {
+            extend: {
+              colors: {
+                pokeYellow: '#FFCB05',
+                pokeBlue: '#2a75bb',
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-black dark:text-white font-sans overflow-x-hidden transition-colors duration-300">
+
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-pokeBlue transition-colors duration-300">
+  <nav class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+          <img src="Gemini_Generated_Image_akys5akys5akys5a.png" alt="Logo" class="h-10 w-auto object-contain">
+          <span class="font-bold text-pokeBlue dark:text-pokeYellow text-xl hidden sm:block">PokeWorld</span>
+      </div>
+      <div class="flex items-center gap-6">
+          <ul class="flex items-center gap-4 sm:gap-8 text-pokeBlue dark:text-pokeYellow text-sm sm:text-base font-semibold">
+              <li><a href="#" class="hover:text-black dark:hover:text-white transition"><i class="fa-solid fa-house"></i> <span class="hidden md:inline">Home</span></a></li>
+              <li><a href="#" class="hover:text-black dark:hover:text-white transition">Pokémon</a></li>
+              <li><a href="#" class="hover:text-black dark:hover:text-white transition">Shop</a></li>
+          </ul>
+          <button id="theme-toggle" class="w-10 h-10 rounded-full border-2 border-pokeBlue dark:border-pokeYellow flex items-center justify-center text-pokeBlue dark:text-pokeYellow hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+              <i class="fa-solid fa-sun hidden dark:block"></i>
+              <i class="fa-solid fa-moon block dark:hidden"></i>
+          </button>
+      </div>
+  </nav>
+</header>
+
+<main class="max-w-7xl mx-auto p-4 sm:p-6">
+  <div class="flex justify-center items-center py-8">
+    <div class="relative w-full max-w-lg">
+        <input type="text" placeholder="Search Movies or Pokémon..." class="w-full h-12 bg-white dark:bg-gray-900 border-2 border-pokeBlue rounded-full px-5 text-gray-900 dark:text-white focus:outline-none focus:border-pokeYellow transition">
+        <button class="absolute right-0 top-0 h-12 w-14 bg-pokeYellow rounded-r-full text-black hover:bg-yellow-400 transition"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
+    <div class="md:row-span-2 border-2 border-pokeYellow rounded-3xl p-6 flex flex-col items-center justify-center bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg transition-colors duration-300">
+        <div class="absolute inset-0 bg-[url('Gemini_Generated_Image_19ckkh19ckkh19ck.png')] bg-cover opacity-10 dark:opacity-20 group-hover:opacity-30 transition duration-500"></div>
+        <h1 class="relative z-10 text-center text-xl md:text-2xl font-bold bg-white/80 dark:bg-black/80 px-4 py-2 border-l-4 border-pokeBlue mb-4 text-black dark:text-white rounded">Top Rated Movie ⭐⭐⭐⭐⭐</h1>
+        <img src="movie-1.png" class="relative z-10 h-48 md:h-64 object-contain transition-transform duration-300 hover:scale-110" alt="Movie Poster">
+        <button class="relative z-10 mt-4 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-6 rounded-full hover:scale-105 transition shadow-lg  bg-amber-400">Watch Now</button>
+    </div>
+    <div class="h-64 md:h-auto border-2 border-orange-500 rounded-3xl bg-[url('movie-1.png')] bg-cover bg-center shadow-lg"></div>
+    <div class="md:row-span-2 h-96 md:h-auto border-2 border-red-600 rounded-3xl bg-[url('new-image.png')] bg-cover bg-center shadow-lg"></div>
+    <div class="h-48 md:h-auto border-2 border-green-500 rounded-3xl bg-[url('image.png')] bg-contain bg-center"></div>
+    <div class="md:col-span-1 h-48 md:h-auto border-2 border-purple-500 rounded-3xl bg-[url('last-box.png')] bg-cover bg-center flex items-center justify-center text-2xl font-bold text-shadow text-white">Season 5</div>
+  </div> 
+
+  <section class="mt-16">
+    <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white transition-colors">Choose Your Partner</h3>
+    <div class="horizontal-box w-full flex gap-4 overflow-x-auto pb-6 px-2 snap-x">
+      <a href="pikachu.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-pokeYellow rounded-xl flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition transform hover:scale-105 group shadow-md">
+          <img src="http://www.pngall.com/wp-content/uploads/5/Cute-Pikachu-PNG-Free-Download.png" class="w-24 drop-shadow-lg group-hover:scale-110 transition">
+      </a>
+      <a href="bulbusor.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-green-500 rounded-xl flex items-center justify-center shadow-md"><img src="bulbusor.png" class="w-24"></a>
+      <a href="charisard.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-red-500 rounded-xl flex items-center justify-center shadow-md"><img src="charizard.png" class="w-24"></a>
+      <a href="squirtel.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-blue-500 rounded-xl flex items-center justify-center shadow-md"><img src="squirtel.png" class="w-24"></a>
+      <a href="onix.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-gray-500 rounded-xl flex items-center justify-center shadow-md"><img src="onix.png" class="w-24"></a>
+      <a href="jiglypuff.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-pink-400 rounded-xl flex items-center justify-center shadow-md"><img src="jiglypuff.png" class="w-24"></a>
+    </div>
+  </section>
+
+  <div class="mt-20 mb-12">
+    <h2 class="text-3xl font-bold text-center text-pokeBlue dark:text-pokeYellow mb-10 transition-colors">Top Trainers</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
+      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue transition duration-300 shadow-lg">
+        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-1">Ash Ketchum 🥇</h3>
+        <div class="aspect-video bg-black rounded-lg overflow-hidden mt-4"><video class="w-full h-full object-cover" controls><source src="Video_Generation_From_User_Prompt.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue transition duration-300 shadow-lg">
+        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-1">Broke🥈</h3>
+        <div class="aspect-video bg-black rounded-lg overflow-hidden mt-4"><video class="w-full h-full object-contain" controls ><source src="Picture_Animation_Request_Fulfilled.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue transition duration-300 shadow-lg">
+        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-1">Misty🥉</h3>
+        <div class="aspect-video bg-black rounded-lg overflow-hidden mt-4"><video class="w-full h-full object-contain" controls autoplay><source src="Video_Generation_with_Black_Background.mp4" type="video/mp4"></video></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-gray-100 dark:bg-gray-900 border-t-4 border-pokeYellow pt-12 pb-6 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div><h3 class="text-2xl font-bold text-pokeBlue dark:text-pokeYellow mb-4"><i class="fa-solid fa-gamepad"></i> Pokémon World</h3><p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Catch 'em all!</p></div>
+        <div>
+            <h4 class="text-lg font-semibold text-blue-500 mb-4">Follow Us</h4>
+            <div class="flex justify-center md:justify-start gap-4">
+              <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700 hover:bg-blue-600 transition"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-pink-600 transition">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-blue-400 transition">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-red-600 transition">
+                    <i class="fa-brands fa-youtube"></i>
+                </a></div>
+        </div>
+    </div>
+    <div class="border-t border-gray-300 dark:border-gray-700 mt-10 pt-6 text-center">
+        <p class="text-gray-600 dark:text-gray-500 text-sm">&copy; 2025 Pokémon World Inc. <br> Designed by Kiran | Roll No: [Yahan Roll No likhein]</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>  
