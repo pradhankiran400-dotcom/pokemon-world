@@ -21,9 +21,11 @@
         }
     </script>
 </head>
+
 <body class="bg-gray-100 text-gray-900 dark:bg-black dark:text-white font-sans overflow-x-hidden transition-colors duration-300">
 
 <header class="sticky top-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-pokeBlue transition-colors duration-300">
+  
   <nav class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2">
           <img src="Gemini_Generated_Image_akys5akys5akys5a.png" alt="Logo" class="h-10 w-auto object-contain">
@@ -56,12 +58,18 @@
         <div class="absolute inset-0 bg-[url('Gemini_Generated_Image_19ckkh19ckkh19ck.png')] bg-cover opacity-10 dark:opacity-20 group-hover:opacity-30 transition duration-500"></div>
         <h1 class="relative z-10 text-center text-xl md:text-2xl font-bold bg-white/80 dark:bg-black/80 px-4 py-2 border-l-4 border-pokeBlue mb-4 text-black dark:text-white rounded">Top Rated Movie ⭐⭐⭐⭐⭐</h1>
         <img src="movie-1.png" class="relative z-10 h-48 md:h-64 object-contain transition-transform duration-300 hover:scale-110" alt="Movie Poster">
-        <button class="relative z-10 mt-4 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-6 rounded-full hover:scale-105 transition shadow-lg  bg-amber-400">Watch Now</button>
+        <button class="relative z-10 mt-4 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-6 rounded-full hover:scale-105 transition shadow-lg  bg-amber-400" id="watch">Watch Now</button>
     </div>
-    <div class="h-64 md:h-auto border-2 border-orange-500 rounded-3xl bg-[url('movie-1.png')] bg-cover bg-center shadow-lg"></div>
-    <div class="md:row-span-2 h-96 md:h-auto border-2 border-red-600 rounded-3xl bg-[url('new-image.png')] bg-cover bg-center shadow-lg"></div>
-    <div class="h-48 md:h-auto border-2 border-green-500 rounded-3xl bg-[url('image.png')] bg-contain bg-center"></div>
-    <div class="md:col-span-1 h-48 md:h-auto border-2 border-purple-500 rounded-3xl bg-[url('last-box.png')] bg-cover bg-center flex items-center justify-center text-2xl font-bold text-shadow text-white">Season 5</div>
+    <div class="h-64 md:h-auto border-2 border-orange-500 rounded-3xl bg-[url('movie-1.png')] bg-cover bg-center shadow-lg hover:scale-105 transition shadow-lg cursor-pointer" id="movie"></div>
+    <!-- <div class="md:row-span-2 h-96 md:h-auto border-2 border-red-600 rounded-3xl bg-[url('new-image.png')] bg-cover bg-center shadow-lg"></div> -->
+    <div class="md:row-span-2 border-2 border-pokeYellow rounded-3xl p-6 flex flex-col items-center justify-center bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg transition-colors duration-300">
+        <div class="absolute inset-0 bg-[url('Gemini_Generated_Image_19ckkh19ckkh19ck.png')] bg-cover opacity-10 dark:opacity-20 group-hover:opacity-30 transition duration-500" id="movie" ></div>
+        <h1 class="relative z-10 text-center text-xl md:text-2xl font-bold bg-white/80 dark:bg-black/80 px-4 py-2 border-l-4 border-pokeBlue mb-4 text-black dark:text-white rounded">Movie name-2</h1>
+        <img src="new-image.png" class="relative  h-64 md:h-64 object-contain transition-transform duration-300 hover:scale-110" alt="Movie Poster">
+        <button class="relative z-10 mt-4 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-6 rounded-full hover:scale-105 transition shadow-lg  bg-yellow-300 cursor-pointer" id="watch">Watch Now</button>
+    </div>
+    <div class="h-48 md:h-auto border-2 border-green-500 rounded-3xl bg-[url('image.png')] bg-contain bg-center hover:scale-105 transition shadow-lg cursor-pointer " id="movie"></div>
+    <div class="md:col-span-1 h-48 md:h-auto border-2 border-purple-500 rounded-3xl bg-[url('last-box.png')] bg-cover bg-center flex items-center justify-center text-2xl font-bold text-shadow text-white hover:scale-105 transition shadow-lg cursor-pointer" style="font-weight: bolder; color: yellow;" id="movie">Season 5</div>
   </div> 
 
   <section class="mt-16">

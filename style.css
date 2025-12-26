@@ -34,3 +34,18 @@
 .text-shadow {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
+
+#watch:hover{
+  background-color: yellow;
+  color: blue;
+}
+#watch:active{
+  background-color:  rgb(255, 255, 136);
+  border: 2px solid blue;
+}
+
+#movie:active{
+  border: 50px;
+  box-shadow: 2px 2px 2px blue;
+  opacity: 0.8;
+}
