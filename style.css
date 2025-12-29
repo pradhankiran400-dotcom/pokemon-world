@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-
-
 .horizontal-box::-webkit-scrollbar {
   height: 8px; 
 }
@@ -36,12 +34,12 @@
 }
 
 #watch:hover{
-  background-color: yellow;
+  background-color: rgb(255, 255, 0);
   color: blue;
 }
 #watch:active{
   background-color:  rgb(255, 255, 136);
-  border: 2px solid blue;
+  border: 2px solid black;
 }
 
 #movie:active{
@@ -49,3 +47,56 @@
   box-shadow: 2px 2px 2px blue;
   opacity: 0.8;
 }
+
+.like-btn {
+    width:40px;
+    height:40px;
+    text-align: center;
+    font-size: 15px;
+    background-color: pink; 
+    border: red 2px solid; 
+    position: relative; 
+    color: red;
+    font-weight: bolder;
+    border-radius: 50%;
+    overflow: visible; 
+}
+
+
+.like-btn:active {
+    transform: scale(0.95);
+    background-color: rgb(243, 17, 115);
+    color:pink;
+}
+
+
+.float-msg {
+    position: absolute;
+    color: blue;
+    font-weight: bolder;
+    font-size: 14px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-80%);
+    
+    animation: moveUp 1s ease-out forwards;
+}
+
+
+@keyframes moveUp {
+    0% {
+        top: 10px;
+        opacity: 1;
+        color: red;
+    }
+    50%{
+      top:-20px;
+      opacity:0.5;
+      color:blue;
+    }
+    100% {
+        top: -50px; 
+        opacity: 0; 
+    }
+}
+

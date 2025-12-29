@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <head>
+<html lang="en" class="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon World</title>
@@ -22,10 +23,9 @@
     </script>
 </head>
 
-<body class="bg-gray-100 text-gray-900 dark:bg-black dark:text-white font-sans overflow-x-hidden transition-colors duration-300">
+<body class="bg-gray-100 text-gray-900 dark:bg-black dark:text-white font-sans overflow-x-hidden transition-colors duration-300 flex flex-col min-h-screen">
 
-<header class="sticky top-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-pokeBlue transition-colors duration-300">
-  
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-pokeBlue transition-colors duration-300 shadow-sm">
   <nav class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2">
           <img src="Gemini_Generated_Image_akys5akys5akys5a.png" alt="Logo" class="h-10 w-auto object-contain">
@@ -33,7 +33,7 @@
       </div>
       <div class="flex items-center gap-6">
           <ul class="flex items-center gap-4 sm:gap-8 text-pokeBlue dark:text-pokeYellow text-sm sm:text-base font-semibold">
-              <li><a href="#" class="hover:text-black dark:hover:text-white transition"><i class="fa-solid fa-house"></i> <span class="hidden md:inline">Home</span></a></li>
+              <li><a href="#" class="hover:text-black dark:hover:text-white transition"><i class="fa-solid fa-house"></i> <span class="hidden md:inline ml-1">Home</span></a></li>
               <li><a href="#" class="hover:text-black dark:hover:text-white transition">Pokémon</a></li>
               <li><a href="#" class="hover:text-black dark:hover:text-white transition">Shop</a></li>
           </ul>
@@ -45,88 +45,215 @@
   </nav>
 </header>
 
-<main class="max-w-7xl mx-auto p-4 sm:p-6">
+<div id="wishlist-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto border-l-4 border-pokeYellow">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-pokeBlue dark:text-pokeYellow">❤️ Favorites</h2>
+        <button onclick="toggleWishlist()" class="text-gray-500 hover:text-red-500 text-2xl transition">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+    <div id="wishlist-container" class="space-y-4">
+        <p class="text-gray-400 text-center italic mt-10" id="empty-msg">No movies liked yet...</p>
+    </div>
+</div>
+<button onclick="toggleWishlist()" class="fixed  bottom-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full shadow-lg z-50 transition-transform hover:scale-110 flex items-center gap-2">
+    <i class="fa-solid fa-heart"></i> 
+    <span class="font-bold hidden md:inline">My List</span>
+</button>
+
+
+<main class="max-w-7xl mx-auto p-4 sm:p-6 ">
+  
   <div class="flex justify-center items-center py-8">
     <div class="relative w-full max-w-lg">
-        <input type="text" placeholder="Search Movies or Pokémon..." class="w-full h-12 bg-white dark:bg-gray-900 border-2 border-pokeBlue rounded-full px-5 text-gray-900 dark:text-white focus:outline-none focus:border-pokeYellow transition">
-        <button class="absolute right-0 top-0 h-12 w-14 bg-pokeYellow rounded-r-full text-black hover:bg-yellow-400 transition"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input type="text" placeholder="Search Movies or Pokémon..." class="w-full h-12 bg-white dark:bg-gray-900 border-2 border-pokeBlue rounded-full px-5 pl-6 text-gray-900 dark:text-white focus:outline-none focus:border-pokeYellow transition shadow-sm">
+        <button class="absolute right-0 top-0 h-12 w-14 bg-pokeYellow rounded-r-full text-black hover:bg-yellow-400 transition flex items-center justify-center"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
-    <div class="md:row-span-2 border-2 border-pokeYellow rounded-3xl p-6 flex flex-col items-center justify-center bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg transition-colors duration-300">
+    <!--movie-1-->
+    <div class="md:row-span-2 border-2 border-pokeYellow rounded-3xl p-6 flex flex-col items-center justify-center bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300">
         <div class="absolute inset-0 bg-[url('Gemini_Generated_Image_19ckkh19ckkh19ck.png')] bg-cover opacity-10 dark:opacity-20 group-hover:opacity-30 transition duration-500"></div>
-        <h1 class="relative z-10 text-center text-xl md:text-2xl font-bold bg-white/80 dark:bg-black/80 px-4 py-2 border-l-4 border-pokeBlue mb-4 text-black dark:text-white rounded">Top Rated Movie ⭐⭐⭐⭐⭐</h1>
-        <img src="movie-1.png" class="relative z-10 h-48 md:h-64 object-contain transition-transform duration-300 hover:scale-110" alt="Movie Poster">
-        <button class="relative z-10 mt-4 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-6 rounded-full hover:scale-105 transition shadow-lg  bg-amber-400" id="watch">Watch Now</button>
+        
+        <h1 class="relative z-10 text-center text-xl md:text-2xl font-bold bg-white/90 dark:bg-black/80 px-4 py-2 border-l-4 border-pokeBlue mb-4 text-black dark:text-white rounded shadow-sm">Top Rated Movie ⭐⭐⭐⭐⭐</h1>
+        
+        <button onclick="toggleLike(this,'movie1','movie-1.png')" 
+        class="absolute top-4 right-4 z-20 text-3xl text-gray-300 hover:text-red-500 transition drop-shadow-md bg-white/80 dark:bg-gray-800/80 rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+        
+        <img src="movie-1.png" class="relative z-10 h-48 md:h-64 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-lg" alt="Movie Poster">
+        
+        <button class="relative z-10 mt-6 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-8 rounded-full hover:scale-105 hover:bg-blue-600 dark:hover:bg-gray-200 transition shadow-md" id="watch">Watch Now</button>
     </div>
-    <div class="h-64 md:h-auto border-2 border-orange-500 rounded-3xl bg-[url('movie-1.png')] bg-cover bg-center shadow-lg hover:scale-105 transition shadow-lg cursor-pointer" id="movie"></div>
-    <!-- <div class="md:row-span-2 h-96 md:h-auto border-2 border-red-600 rounded-3xl bg-[url('new-image.png')] bg-cover bg-center shadow-lg"></div> -->
-    <div class="md:row-span-2 border-2 border-pokeYellow rounded-3xl p-6 flex flex-col items-center justify-center bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg transition-colors duration-300">
-        <div class="absolute inset-0 bg-[url('Gemini_Generated_Image_19ckkh19ckkh19ck.png')] bg-cover opacity-10 dark:opacity-20 group-hover:opacity-30 transition duration-500" id="movie" ></div>
-        <h1 class="relative z-10 text-center text-xl md:text-2xl font-bold bg-white/80 dark:bg-black/80 px-4 py-2 border-l-4 border-pokeBlue mb-4 text-black dark:text-white rounded">Movie name-2</h1>
-        <img src="new-image.png" class="relative  h-64 md:h-64 object-contain transition-transform duration-300 hover:scale-110" alt="Movie Poster">
-        <button class="relative z-10 mt-4 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-6 rounded-full hover:scale-105 transition shadow-lg  bg-yellow-300 cursor-pointer" id="watch">Watch Now</button>
-    </div>
-    <div class="h-48 md:h-auto border-2 border-green-500 rounded-3xl bg-[url('image.png')] bg-contain bg-center hover:scale-105 transition shadow-lg cursor-pointer " id="movie"></div>
-    <div class="md:col-span-1 h-48 md:h-auto border-2 border-purple-500 rounded-3xl bg-[url('last-box.png')] bg-cover bg-center flex items-center justify-center text-2xl font-bold text-shadow text-white hover:scale-105 transition shadow-lg cursor-pointer" style="font-weight: bolder; color: yellow;" id="movie">Season 5</div>
-  </div> 
+    <!--movie-2-->
+    <div class="h-auto border-2 border-orange-500 rounded-3xl p-6 flex flex-col items-center justify-between bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300">
+         <div class="absolute inset-0 bg-[url('film.png')] bg-cover bg-center opacity-5 dark:opacity-10 group-hover:opacity-20 transition duration-500"></div>
 
-  <section class="mt-16">
-    <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white transition-colors">Choose Your Partner</h3>
-    <div class="horizontal-box w-full flex gap-4 overflow-x-auto pb-6 px-2 snap-x">
-      <a href="pikachu.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-pokeYellow rounded-xl flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition transform hover:scale-105 group shadow-md">
-          <img src="http://www.pngall.com/wp-content/uploads/5/Cute-Pikachu-PNG-Free-Download.png" class="w-24 drop-shadow-lg group-hover:scale-110 transition">
+        <button onclick="toggleLike(this,'Detective Pikachu','film.png')"
+                class="absolute top-4 right-4 z-20 text-2xl text-gray-300 hover:text-red-500 transition drop-shadow-md bg-white/80 dark:bg-gray-800/80 rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <h2 class="relative z-10 text-center text-lg font-bold bg-white/90 dark:bg-black/80 px-3 py-2 border-l-4 border-orange-500 text-black dark:text-white rounded w-full truncate shadow-sm mb-4">
+            Detective Pikachu
+        </h2>
+
+        <img src="film.png" class="relative z-10 h-40 w-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-md" alt="Movie Poster 2">
+
+        <button class="relative z-10 mt-4 bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 hover:scale-105 transition shadow-md text-sm" id="watch">
+            Watch
+        </button>
+    </div>
+    <!--movie-3-->
+    <div class="md:row-span-2 border-2 border-pokeYellow rounded-3xl p-6 flex flex-col items-center justify-center bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="absolute inset-0 bg-[url('Gemini_Generated_Image_19ckkh19ckkh19ck.png')] bg-cover opacity-10 dark:opacity-20 group-hover:opacity-30 transition duration-500"></div>
+        
+        <h1 class="relative z-10 text-center text-xl md:text-2xl font-bold bg-white/90 dark:bg-black/80 px-4 py-2 border-l-4 border-pokeBlue mb-4 text-black dark:text-white rounded shadow-sm">Pokemon Heroes</h1>
+        
+        <button onclick="toggleLike(this, 'Pokemon Heroes', 'new-image.png')" 
+                class="absolute top-4 right-4 z-20 text-3xl text-gray-300 hover:text-red-500 transition drop-shadow-md bg-white/80 dark:bg-gray-800/80 rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+        
+        <img src="new-image.png"  class="relative z-10 h-48 md:h-64 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-lg" alt="Movie Poster">
+        
+        <button class="relative z-10 mt-6 bg-pokeBlue text-white dark:bg-white dark:text-black font-bold py-2 px-8 rounded-full hover:scale-105 hover:bg-blue-600 dark:hover:bg-gray-200 transition shadow-md" id="watch">Watch Now</button>
+    </div>
+    <!--movie-4-->
+    <div class="md:col-span-1 h-auto border-2 border-purple-500 rounded-3xl p-6 flex flex-col items-center justify-between bg-white dark:bg-gray-900 relative overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300">
+         <div class="absolute inset-0 bg-[url('film1.png')] bg-cover bg-center opacity-5 dark:opacity-10 group-hover:opacity-20 transition duration-500"></div>
+
+        <button onclick="toggleLike(this,'Season 5 Journey','film1.png')" 
+                class="absolute top-4 right-4 z-20 text-2xl text-gray-300 hover:text-red-500 transition drop-shadow-md bg-white/80 dark:bg-gray-800/80 rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <h3 class="relative z-10 text-center font-bold text-black dark:text-white bg-white/90 dark:bg-black/80 py-2 px-3 rounded border-l-4 border-purple-500 text-lg w-full truncate shadow-sm mb-4">
+            Season 5 Journey
+        </h3>
+
+        <img src="film1.png"  class="relative z-10 h-40 w-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-md" alt="Season 5 Poster">
+
+         <button class="relative z-10 mt-4 bg-purple-500 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-600 hover:scale-105 transition shadow-md text-sm" id="watch">
+            View Episodes
+        </button>
+    </div>
+</div> 
+
+  <section class="mt-20">
+    <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white transition-colors relative">
+        Choose Your Partner
+        <span class="block w-20 h-1 bg-pokeYellow mx-auto mt-2 rounded-full"></span>
+    </h3>
+    <div class="horizontal-box w-full flex gap-6 overflow-x-auto pb-8 px-4 snap-x scrollbar-hide">
+      <a href="pikachu.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-yellow-100 border-2 border-pokeYellow rounded-2xl flex items-center justify-center hover:bg-yellow-50 dark:hover:bg-gray-700 transition transform hover:-translate-y-2 group shadow-md">
+          <img src="http://www.pngall.com/wp-content/uploads/5/Cute-Pikachu-PNG-Free-Download.png" class="w-28 drop-shadow-lg group-hover:scale-110 transition" alt="Pikachu">
       </a>
-      <a href="bulbusor.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-green-500 rounded-xl flex items-center justify-center shadow-md"><img src="bulbusor.png" class="w-24"></a>
-      <a href="charisard.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-red-500 rounded-xl flex items-center justify-center shadow-md"><img src="charizard.png" class="w-24"></a>
-      <a href="squirtel.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-blue-500 rounded-xl flex items-center justify-center shadow-md"><img src="squirtel.png" class="w-24"></a>
-      <a href="onix.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-gray-500 rounded-xl flex items-center justify-center shadow-md"><img src="onix.png" class="w-24"></a>
-      <a href="jiglypuff.html" class="snap-center shrink-0 w-32 h-48 bg-white dark:bg-gray-900 border-2 border-pink-400 rounded-xl flex items-center justify-center shadow-md"><img src="jiglypuff.png" class="w-24"></a>
+      <a href="bulbusor.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-green-200 border-2 border-green-500 rounded-2xl flex items-center justify-center hover:-translate-y-2 transition shadow-md group"><img src="bulbusor.png"class="w-28 group-hover:scale-110 transition drop-shadow-md" alt="Bulbasaur"></a>
+      <a href="charisard.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-red-300 border-2 border-red-500 rounded-2xl flex items-center justify-center hover:-translate-y-2 transition shadow-md group"><img src="charizard.png"  class="w-28 group-hover:scale-110 transition drop-shadow-md" alt="Charizard"></a>
+      <a href="squirtel.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-blue-200 border-2 border-blue-500 rounded-2xl flex items-center justify-center hover:-translate-y-2 transition shadow-md group"><img src="squirtel.png" class="w-28 group-hover:scale-110 transition drop-shadow-md" alt="Squirtle"></a>
+       <a href="jiglypuff.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-pink-200 border-2 border-pink-400 rounded-2xl flex items-center justify-center hover:-translate-y-2 transition shadow-md group"><img src="jiglypuff.png"  class="w-24 group-hover:scale-110 transition drop-shadow-md" alt="Jigglypuff"></a>
+      <a href="onix.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-gray-800 border-2 border-gray-800 rounded-2xl flex items-center justify-center hover:-translate-y-2 transition shadow-md group"><img src="onix.png"  class="w-24 group-hover:scale-110 transition drop-shadow-md" alt="onix"></a>
+      <a href="blast.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-blue-500 border-2 border-blue-800 rounded-2xl flex items-center justify-center hover:-translate-y-2 transition shadow-md group"><img src="blast.png"  class="w-24 group-hover:scale-110 transition drop-shadow-md" alt="blattorist"></a>
+      <a href="snorfex.html" class="snap-center shrink-0 w-36 h-52 bg-white dark:bg-blue-300 border-2 border-yellow-600 rounded-2xl flex items-center justify-center hover:-translate-y-2 transition shadow-md group"><img src="snorfex.png"  class="w-24 group-hover:scale-110 transition drop-shadow-md" alt="snorflex"></a>
     </div>
   </section>
 
-  <div class="mt-20 mb-12">
-    <h2 class="text-3xl font-bold text-center text-pokeBlue dark:text-pokeYellow mb-10 transition-colors">Top Trainers</h2>
+  <div class="mt-24 mb-12">
+    <h2 class="text-3xl font-bold text-center text-pokeBlue dark:text-pokeYellow mb-10 transition-colors relative">
+        Top Trainers
+        <span class="block w-20 h-1 bg-pokeBlue dark:bg-pokeYellow mx-auto mt-2 rounded-full"></span>
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
-      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue transition duration-300 shadow-lg">
-        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-1">Ash Ketchum 🥇</h3>
-        <div class="aspect-video bg-black rounded-lg overflow-hidden mt-4"><video class="w-full h-full object-cover" controls><source src="Video_Generation_From_User_Prompt.mp4" type="video/mp4"></video></div>
+      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue dark:hover:border-pokeYellow transition duration-300 shadow-lg group hover:-translate-y-1">
+        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-2 group-hover:text-pokeBlue dark:group-hover:text-pokeYellow transition">Ash Ketchum 🥇</h3>
+        <div class="aspect-video bg-black rounded-xl overflow-hidden mt-2 shadow-sm">
+            <video class="w-full h-full object-cover" controls poster="https://assets.pokemon.com/assets/cms2/img/misc/ash-ketchum-resized.jpg"><source src="Video_Generation_From_User_Prompt.mp4" type="video/mp4"></video>
+        </div>
       </div>
-      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue transition duration-300 shadow-lg">
-        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-1">Broke🥈</h3>
-        <div class="aspect-video bg-black rounded-lg overflow-hidden mt-4"><video class="w-full h-full object-contain" controls ><source src="Picture_Animation_Request_Fulfilled.mp4" type="video/mp4"></video></div>
+      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue dark:hover:border-pokeYellow transition duration-300 shadow-lg group hover:-translate-y-1">
+        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-2 group-hover:text-pokeBlue dark:group-hover:text-pokeYellow transition">Brock 🥈</h3>
+        <div class="aspect-video bg-black rounded-xl overflow-hidden mt-2 shadow-sm">
+            <video class="w-full h-full object-contain" controls poster="https://assets.pokemon.com/assets/cms2/img/video-games/video-games/pokemon_puzzle_league/brock_bg.jpg"><source src="Picture_Animation_Request_Fulfilled.mp4" type="video/mp4"></video>
+        </div>
       </div>
-      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue transition duration-300 shadow-lg">
-        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-1">Misty🥉</h3>
-        <div class="aspect-video bg-black rounded-lg overflow-hidden mt-4"><video class="w-full h-full " controls ><source src="Video_Generation_with_Black_Background.mp4" type="video/mp4"></video></div>
+      <div class="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 hover:border-pokeBlue dark:hover:border-pokeYellow transition duration-300 shadow-lg group hover:-translate-y-1">
+        <h3 class="text-gray-900 dark:text-white text-xl font-bold text-center mb-2 group-hover:text-pokeBlue dark:group-hover:text-pokeYellow transition">Misty 🥉</h3>
+        <div class="aspect-video bg-black rounded-xl overflow-hidden mt-2 shadow-sm">
+            <video class="w-full h-full object-contain" controls poster="https://assets.pokemon.com/assets/cms2/img/watch-pokemon-tv/seasons/season-1/season-1-ep-0-misty.jpg"><source src="Video_Generation_with_Black_Background.mp4" type="video/mp4"></video>
+        </div>
       </div>
     </div>
   </div>
 </main>
 
-<footer class="bg-gray-100 dark:bg-gray-900 border-t-4 border-pokeYellow pt-12 pb-6 transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-        <div><h3 class="text-2xl font-bold text-pokeBlue dark:text-pokeYellow mb-4"><i class="fa-solid fa-gamepad"></i> Pokémon World</h3><p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Catch 'em all!</p></div>
+<footer class="bg-gray-100 dark:bg-gray-900 border-t-4 border-pokeYellow pt-12 pb-8 transition-colors duration-300 mt-auto">
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center md:text-left">
+        
+        <div class="flex flex-col items-center md:items-start">
+            <h3 class="text-2xl font-bold text-pokeBlue dark:text-pokeYellow mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-gamepad"></i> Pokémon World
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+                Your ultimate destination for all things Pokémon! Movies, trainers, and catching 'em all.
+            </p>
+        </div>
+
         <div>
-            <h4 class="text-lg font-semibold text-blue-500 mb-4">Follow Us</h4>
+             <h4 class="text-lg font-semibold text-pokeBlue dark:text-white mb-4 uppercase tracking-wider">Quick Links</h4>
+             <ul class="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
+                <li>
+                    <a href="#" class="hover:text-pokeYellow hover:underline transition-all duration-200">Terms of Service</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:text-pokeYellow hover:underline transition-all duration-200">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:text-pokeYellow hover:underline transition-all duration-200">Contact Us</a>
+                </li>
+             </ul>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-semibold text-pokeBlue dark:text-white mb-4 uppercase tracking-wider">Follow Us</h4>
+            
             <div class="flex justify-center md:justify-start gap-4">
-              <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700 hover:bg-blue-600 transition"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-pink-600 transition">
+                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-sm text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:-translate-y-1">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-sm text-pink-600 hover:bg-pink-600 hover:text-white transition-all duration-300 hover:-translate-y-1">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-blue-400 transition">
+                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-sm text-blue-400 hover:bg-blue-400 hover:text-white transition-all duration-300 hover:-translate-y-1">
                     <i class="fa-brands fa-twitter"></i>
                 </a>
-                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-red-600 transition">
+                <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-sm text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1">
                     <i class="fa-brands fa-youtube"></i>
-                </a></div>
+                </a>
+            </div>
         </div>
     </div>
-    <div class="border-t border-gray-300 dark:border-gray-700 mt-10 pt-6 text-center">
-        <p class="text-gray-600 dark:text-gray-500 text-sm">&copy; 2025 Pokémon World Inc. <br> Designed by Kiran | Roll No: [125ID0012]</p><br>
-        <a href="https://www.linkedin.com/in/kiran-kumar-pradhan-b65198369/"><p><i class="fa-brands fa-linkedin"></i></p></a>
-        <a href=""><i class="fa-brands fa-github"></i></a>
+
+    <div class="border-t border-gray-300 dark:border-gray-700 mt-10 pt-6 px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        
+        <div class="text-gray-600 dark:text-gray-500 text-sm flex flex-col sm:flex-row gap-1 sm:gap-2">
+            <span>&copy; 2025 Pokémon World Inc.</span>
+            <span class="hidden sm:inline">|</span> 
+            <span>Designed by <span class="text-pokeBlue dark:text-pokeYellow font-semibold">Kiran [125ID0012]</span></span>
+        </div>
+
+        <div class="flex gap-6 text-gray-500 dark:text-gray-400 text-xl">
+            <a href="https://www.linkedin.com/in/kiran-kumar-pradhan-b65198369/" target="_blank" class="hover:text-blue-600 dark:hover:text-pokeYellow transition-transform hover:scale-110">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" class="hover:text-black dark:hover:text-white transition-transform hover:scale-110">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+
     </div>
 </footer>
 
